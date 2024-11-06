@@ -1,0 +1,12 @@
+////////////// TAUPI 4.0 @ Shelly ///// Script KVS anlegen /////////////////////////////
+// Disclaimer: Do not use. If you use it, its at your own risk.
+// 
+// Dieser Script unterliegt der Boos Lisence: https://www.boost.org/LICENSE_1_0.txt
+//
+// Dieser Script legt die KVS Variablen an. Er muss nur einmal gestartet werden. 
+//
+
+kvsSet("taupunkt_innen", "99");
+kvsSet("temperatur_aussen", "99");
+kvsSet("temperatur_innen", "99");
+kvsSet("humidity_innen", "99");
