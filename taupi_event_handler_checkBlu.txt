@@ -38,7 +38,7 @@ function checkBlu(event) {
   print(JSON.stringify(event));
   
  // abfangen fremder events
- if(event.info.id!=3) { 
+ if(event.component=="switch:0") { 
       print("fremden event abgefangen");
       return;
  } // ende if abfangen fremder events
