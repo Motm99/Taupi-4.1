@@ -1,7 +1,8 @@
 ////////////// TAUPI 4.0 @ Shelly ///// Script Lüfter schalten /////////////////////////////
-// Disclaimer: Do not use. If you use it, its at your own risk.
-// 
-// Dieser Script unterliegt der Boos Lisence: https://www.boost.org/LICENSE_1_0.txt
+// copyright by boeserbob
+// Fragen an quirb@web.de
+// Dokumentation und aktuelle Versionen unter https://github.com/BoeserBob/Taupi-4.0
+// Lizenz und erforderliche Firmware siehe in den Kommentaren des Scripts "taupi_event_handler_checkBlu"
 //
 // Dieser Script schaltet den Lüfter (über den Schalter des Shellys auf dem er installiert ist. 
 //   er startet eine Timerschleife
@@ -10,19 +11,18 @@
 //         wenn der Taupunkt innen größer als der Taupunkt außen + einem Schwellwert ist wird der Lüfter eingeschaltet, sonst ausgeschaltet.
 //         wenn die Innentermperatur unter 8° und die Innenraumfeuchte unter 50% ist wird der Lüfer ausgeschaltet
 // 
-// Das abrufen aus dem KVS und die Timerschleife sind Black Magic aber es funktioniert.
+// Die Schaltparameter (Mindesttemperaturen, Taupunktschwelle, ...) können in der Funktion "schalten" angepasst werden. 
 //
-
-
-var 
-
 
 function schalten(taupunkt_innen,taupunkt_aussen,temperatur_innen,humidity_innen) {
  print("schalten_aufgerufen ");
- let taupunktschwelle = 2;
- let mindesttemperatur = 8;
- let mindesthumi = 50;
- 
+
+/////////////// Schaltparameter ///////////////
+ let taupunktschwelle = 2; // in °C = Differenz zwischen Taupunkt innen ud aussen, ab der der Lüfter einschaltet
+ let mindesttemperatur = 8; // in °C = unterhalb dieser Temperatur wird nicht gelüftet 
+ let mindesthumi = 50; // in % = unterhalb dieser Schwelle wird nicht mehr gelüftet
+//////////// Schaltparameter /////////////////
+
    if (temperatur_innen > mindesttemperatur && humidity_innen > mindesthumi) {
     if (taupunkt_innen > taupunkt_aussen + taupunktschwelle) {
       print("lüfter einschalten ");
