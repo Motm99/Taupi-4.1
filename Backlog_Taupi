@@ -1,0 +1,12 @@
+Offen
+- Abfangen von Störungen verbessern. 
+- Warum startet der Script taupi_event_handler_checkBlu nicht automatisch beim Neustart des Shelly, obwohl es aktiviert ist?
+- Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt.
+- 
+
+
+Erledigt
+
+
+
+Abgebrochen
