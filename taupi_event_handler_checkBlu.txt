@@ -4,19 +4,20 @@
 // Fragen an quirb@web.de
 // Dokumentation und aktuelle Versionen unter https://github.com/BoeserBob/Taupi-4.0
 // Getestet mit Firmware 
-// -> Shelly Plus Plug S 20241011-114442/1.4.4-g6d2a586
-// -> Shelly BLU HT 1.0.16
+// Shelly Plus Plug S 20241011-114442/1.4.4-g6d2a586
+// Shelly BLU HT 1.0.16
 // 
-// Der Taupunktlüfter besteht aus vier skripten, die ersten 3 sind von mir: 
+// Der Taupunktlüfter besteht aus vier skripten:
 //     einem event handler (taupi_event_handler_checkBlu)
 //     einer Lüftersteuerung (Luefter_schalten)
-//     einem Script zur Anlage der KVS, der nur einmal aufgerufen werden muss (KVS_anlegen).
 //     einem bluetooth "Empfänger" (ble-shelly-blu, der ist nicht von mir sondern ein fertiges Beispiel von shelly)
+//     einem Script zur Anlage der KVS, der nur einmal aufgerufen werden muss (KVS_anlegen).
 // 
 // Dieser Script hier ist der event handler, er lauscht auf die vom bluetooth Empfänger geworfenen events der H&T Blu Sensoren.
 // er liest die Daten für Temperatur und Feuchtigkeit aus den JSON Paketen aus
 // er berechnet den Taupunkt
 // er speichert notwendige Daten in den dauerhaften KVS Speicher des Shellys.
+//
 //
 // 
 //////// Hier musst du die Adresse der H&T Blu Sensoren eingeben
@@ -90,23 +91,27 @@ function checkBlu(event) {
 function taupunkt(temperatur, luftfeuchtigkeit) {
     var a = 17.27;
     var b = 237.7;
-    
-    var alpha = (a * temperatur) / (b + temperatur) + Math.log(luftfeuchtigkeit / 100);
-    
+    var c = 21.875;
+    var d = 265.5;
+     
     // Berechnung für über 0°C
     if (temperatur >= 0) {
+        var alpha = (a * temperatur) / (b + temperatur) + Math.log(luftfeuchtigkeit / 100);
         var taup = (b * alpha) / (a - alpha);
+        print ("taupunkt für über 0");
+        print (taup);
         return taup;
     }
     // Berechnung für unter 0°C
-    else {
-        var taup = (b * alpha) / (a - alpha);
+    if (temperatur < 0) {
+        var alpha = (c * temperatur) / (d + temperatur) + Math.log(luftfeuchtigkeit / 100);
+        var taup = (d * alpha) / (c - alpha);
+        print ("taupunkt für unter 0");
+        print (taup);
         return taup;
     }
-    print ("taupunkt");
-    print (taup)
 } 
 
-// Taupunktberechnung ///////////////////////////////////////////////////////////////////////
+// Ende Taupunktberechnung ///////////////////////////////////////////////////////////////////////
 
 Shelly.addEventHandler(checkBlu); // registriert checkEvent als EventHandler
