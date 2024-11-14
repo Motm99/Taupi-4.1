@@ -47,7 +47,7 @@ function checkBlu(event) {
    
   // ist es der äußere Sensor? 
   if(event.info.data.address!=sensor_aussen) { 
-      print("sensor aussen erkannt");
+      print("sensor aussen erkannt -------------------------------");
       var taupunkt_aussen = taupunkt(event.info.data.temperature,event.info.data.humidity);
       var temperatur_aussen = (event.info.data.temperature);
       var humidity_aussen = (event.info.data.humidity);      
@@ -65,7 +65,7 @@ function checkBlu(event) {
 
 // ist es der innere sensor?
   if (event.info.data.address!=sensor_innen) {
-      print("sensor innen erkannt");
+      print("sensor innen erkannt ----------------------------------------------");
       let taupunkt_innen = taupunkt(event.info.data.temperature,event.info.data.humidity);
       let temperatur_innen = (event.info.data.temperature);
       let humidity_innen = (event.info.data.humidity);
@@ -114,4 +114,13 @@ function taupunkt(temperatur, luftfeuchtigkeit) {
 
 // Ende Taupunktberechnung ///////////////////////////////////////////////////////////////////////
 
-Shelly.addEventHandler(checkBlu); // registriert checkEvent als EventHandler
+// Verzögerter Start des Event Handlers, um die ganzen mir nicht bekannten Events beim Start des Shellys die ich noch nicht abfangen kann abzuwarten. 
+function verzoegerter_start(millisekunden) {
+    Timer.set(millisekunden, false, function() {
+        print("Pause beendet nach " + millisekunden + " Millisekunden.");
+        Shelly.addEventHandler(checkBlu); // registriert checkEvent als EventHandler
+         });
+}
+
+// Beispielaufruf der Pause-Funktion mit einer Verzögerung von 3000 Millisekunden (3 Sekunden)
+verzoegerter_start(5000);
