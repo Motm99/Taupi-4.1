@@ -10,7 +10,7 @@ Inspiriert durch den phänomenalen Taupunktlüfter aus der Zeitschrift MAKE 1/20
 
 Warum auf einer Shelly Plug und nicht im coolen HomeAssitant oder IOBroker oder sowas? Das ist doch Steinzeit.
 
-  Damit es als Insel mit minimalem Aufwand fernab von WLANs und Routern laufen kann.
+  Damit es als Insel mit minimalem Aufwand fernab von WLANs und Routern laufen kann. 
   Und weils geht.
 
 Was ist die Aufgabe des Taupunktlüfters? 
