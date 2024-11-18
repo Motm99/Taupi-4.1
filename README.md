@@ -5,6 +5,7 @@ Inspiriert durch den phänomenalen Taupunktlüfter aus der Zeitschrift MAKE 1/20
 - geplagt von grässlichen Versuchen mit dem Arduino (Version 1: grrr, kein WLAN)
 - gequält von lausigen DHT22 Sensoren, selbst auf einem ESP8266 programmiert (Version 2: Kotz, DHT22 und EMV...)
 - gelangweilt von ESP easy, den rules und den BME280 (Version 3: damit war der Taupunktlüfter an ein einem Nachmittag fertig).
+  
 ... habe ich als Version 4.0 eine idiotensichere Variante ohne Löten, ohne Kabel zu den Sensoren, ohne 230V Basteleien zusammengestellt.
 
 Warum auf einer Shelly Plug und nicht im coolen HomeAssitant oder IOBroker oder sowas? Das ist doch Steilzeit.
