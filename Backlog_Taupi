@@ -1,14 +1,19 @@
 Offen
-- Stabilität verbessern, Abfangen von Störungen verbessern.
+- Stabilität verbessern
+- Warum stürzt der Fusion Script immer wieder ab? Wer erzeugt die KVS.getmany Aufrufe?
+- Abfangen von Störungen verbessern: JSON von event_blu stringifizieren und zeichenweise analysieren.
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt.
-- Fusion der Scripte: KVS anlegen in den event handler integrieren.
-- Fusion der Scripte: Script für Schalten und Event Handler zu einem zusammenführen
+- Umbauen KVS auf einen JSON für alle 4 Daten statt 4 einzelne Einträge -> Reduzierung Anzahl Shelly Calls.
 
 
 Erledigt
 - Taupunktberechnung korrigiert (war über und unter Null Grad gleich)
 - Warum startet der Script taupi_event_handler_checkBlu nicht automatisch beim Neustart des Shelly, obwohl es aktiviert ist? Weil beim Reboot Events geworfen werden, die von meinem einfachen Filter nicht abgefangen werden. 
-
+- Fusion der Scripte: Script für Schalten und Event Handler zu einem zusammenführen
 
 Abgebrochen
 - keine
+
+
+Zurückgestellt_
+- Fusion der Scripte: KVS anlegen in den event handler integrieren.
