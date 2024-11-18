@@ -1,7 +1,8 @@
 Offen
 - Stabilität verbessern, Abfangen von Störungen verbessern.
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt.
-- KVS anlegen in den event handler integrieren.
+- Fusion der Scripte: KVS anlegen in den event handler integrieren.
+- Fusion der Scripte: Script für Schalten und Event Handler zu einem zusammenführen
 
 
 Erledigt
