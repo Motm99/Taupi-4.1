@@ -12,7 +12,7 @@
 //     einem bluetooth "Empfänger" (ble-shelly-blu, der ist nicht von mir sondern ein fertiges Beispiel von shelly)
 //     einem Script zur Anlage der KVS, der nur einmal aufgerufen werden muss (KVS_anlegen).
 // 
-// Dieser Script hier ist der event handler + Lüftersteuerung, er lauscht auf die vom bluetooth Empfänger geworfenen events der H&T Blu Sensoren.
+// Dieser Script hier ist der event handler und die Lüftersteuerung, er lauscht auf die vom bluetooth Empfänger geworfenen events der H&T Blu Sensoren.
 // er liest die Daten für Temperatur und Feuchtigkeit aus den JSON Paketen aus
 // er berechnet den Taupunkt
 // er speichert notwendige Daten in den dauerhaften KVS Speicher des Shellys.
