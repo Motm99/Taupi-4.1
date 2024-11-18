@@ -1,7 +1,7 @@
 Offen
-- Abfangen von Störungen verbessern. 
+- Stabilität verbessern, Abfangen von Störungen verbessern.
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt.
-- 
+- KVS anlegen in den event handler integrieren.
 
 
 Erledigt
@@ -10,3 +10,4 @@ Erledigt
 
 
 Abgebrochen
+- keine
