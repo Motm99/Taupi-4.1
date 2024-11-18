@@ -1,4 +1,4 @@
-////////////// TAUPI 4.0 @ Shelly ///// Script Taupi_Fusion ////////////////////
+////////////// TAUPI 4.0 @ Shelly ///// Script taupi_event_handler_checkBlu ////////////////////
 // Diese Software und die zugehörigen Skripte unterliegen der Boost Software License - Version 1.0 - August 17th, 2003
 // copyright by boeserbob
 // Fragen an quirb@web.de
@@ -12,7 +12,7 @@
 //     einem bluetooth "Empfänger" (ble-shelly-blu, der ist nicht von mir sondern ein fertiges Beispiel von shelly)
 //     einem Script zur Anlage der KVS, der nur einmal aufgerufen werden muss (KVS_anlegen).
 // 
-// Dieser Script hier ist der event handler und die Lüftersteuerung, er lauscht auf die vom bluetooth Empfänger geworfenen events der H&T Blu Sensoren.
+// Dieser Script hier ist der event handler + Lüftersteuerung, er lauscht auf die vom bluetooth Empfänger geworfenen events der H&T Blu Sensoren.
 // er liest die Daten für Temperatur und Feuchtigkeit aus den JSON Paketen aus
 // er berechnet den Taupunkt
 // er speichert notwendige Daten in den dauerhaften KVS Speicher des Shellys.
@@ -36,6 +36,9 @@ var humidity_aussen;
 
 // Event Handler auswerten, diese Funktion schreibt die Messwerte und die berechneten Taupunkte in den KVS
 function checkBlu(event) { 
+  print("check blu aufgerufen");
+  print(JSON.stringify(event));
+
  // abfangen fremder events
  if(event.component=="switch:0") { 
       print("fremden event abgefangen");
