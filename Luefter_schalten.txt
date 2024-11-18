@@ -14,13 +14,15 @@
 // Die Schaltparameter (Mindesttemperaturen, Taupunktschwelle, ...) können in der Funktion "schalten" angepasst werden. 
 //
 
+
+// Diese Funktion übernimmt das eigentliche Schalten. 
 function schalten(taupunkt_innen,taupunkt_aussen,temperatur_innen,humidity_innen) {
  print("schalten_aufgerufen ");
 
 /////////////// Schaltparameter ///////////////
  let taupunktschwelle = 2; // in °C = Differenz zwischen Taupunkt innen ud aussen, ab der der Lüfter einschaltet
  let mindesttemperatur = 8; // in °C = unterhalb dieser Temperatur wird nicht gelüftet 
- let mindesthumi = 50; // in % = unterhalb dieser Schwelle wird nicht mehr gelüftet
+ let mindesthumi = 60; // in % = unterhalb dieser Schwelle wird nicht mehr gelüftet
 //////////// Schaltparameter /////////////////
 
    if (temperatur_innen > mindesttemperatur && humidity_innen > mindesthumi) {
@@ -33,14 +35,14 @@ function schalten(taupunkt_innen,taupunkt_aussen,temperatur_innen,humidity_innen
       }
       }
     else {
-        print("lüfter ausschalten weil zu kalt ");
+        print("lüfter ausschalten weil zu kalt oder zu trocken");
       Shelly.call("Switch.Set", {id:0, on:false});
     }
 
 }
 
 
-
+// Diese Funktion holt die Werte für Taupunkte und Temperaut/Feuchte innen aus dem KVS: 
 function kvsGet(key1,key2,key3,key4) {
 Shelly.call(
         "KVS.get",
@@ -71,15 +73,17 @@ Shelly.call(
         }
     );
     
-    
-    
-    
-    
-    
 }
 
-kvsGet("taupunkt_innen","taupunkt_aussen","temperatur_innen","humidity_innen");
 
+
+// hier gehts wirklich los: 
+
+  let taupi_innen;
+  let taupi_aussen;
+  let temp_innen;
+  let humi_innen;
+  
 Timer.set(5000, true, function(ud) { //Start Timerschleife
   kvsGet("taupunkt_innen","taupunkt_aussen","temperatur_innen","humidity_innen");
   print("Timerergebnis:"); 
