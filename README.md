@@ -1,10 +1,12 @@
 # Taupi-4.0 - BETA and growing ...
+Offene Themen sind im Backlog dokumentiert.
+
 A dewpoint triggered ventilaton system based on a Shelly Plug S Plus and two Shelly H+T Blu humidity and temperature sensors 
 
 Inspiriert durch den phänomenalen Taupunktlüfter aus der Zeitschrift MAKE 1/2022 ....
 - geplagt von grässlichen Versuchen mit dem Arduino (Version 1: grrr, kein WLAN)
-- gequält von lausigen DHT22 Sensoren, selbst auf einem ESP8266 programmiert (Version 2: Kotz, DHT22 und EMV...)
-- gelangweilt von ESP easy, den rules und den BME280 (Version 3: damit war der Taupunktlüfter an ein einem Nachmittag fertig).
+- gequält von lausigen DHT22 Sensoren an einem selbst programmierten ESP8266 (Version 2: Kotz, DHT22 und EMV...)
+- geflasht von ESP easy, Rules und den BME280 (Version 3: laaangweilig, damit war der Taupunktlüfter an ein einem Nachmittag fertig).
   
 ... habe ich als Version 4.0 eine idiotensichere Variante ohne Löten, ohne Kabel zu den Sensoren, ohne 230V Basteleien zusammengestellt.
 
@@ -30,11 +32,14 @@ Woraus besteht das System?
   - mehreren Skripte, die  auf der Shelly Plug laufen
   - einem Skript zur Initialisierung des KVS Variablenspeichers im Shelly Plug
 
-Wie wird installiert: Film folgt. 
-
-Kurzvesion: BT-Sensoren mit Shelly Plug koppeln, Skripte (Fusion, BLE und KVS) installieren, KVS Script starten und wieder löschen, Skripte auf automatischen Start stellen, Adressen der BT-Sensoren raussuchen -> 
-
-Offene Themen sind im Backlog dokumentiert.
+Instalationsanleitung als Film ist in Arbeit.  
+Kurzversion: 
+- BT-Sensoren mit Shelly Plug koppeln.
+- Firmwareupdates durchführen. 
+- Skripte installieren (Lüfter_schalten, event_handler, BLE und KVS). 
+- KVS Script starten und wieder löschen.
+- Skripte auf automatischen Start stellen.
+- Adressen der BT-Sensoren raussuchen und in event-handler anpassen.
 
 P.S.: ich habe wenig Ahnung von Programmieren, deshalb ist einiges recht rustikal gelöst.
 Anregungen ud Korrekturen gerne, das Projekt wird sicher wachsen :-)
