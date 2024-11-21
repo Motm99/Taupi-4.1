@@ -37,13 +37,21 @@ function checkBlu(event) {
   print("check blu aufgerufen");
   print(JSON.stringify(event));
 
-// Abfangen fremde events, enthält der Event die korrekten Keys?
-let requiredKeys = ["humidity", "temperature"]; 
-for (let key of requiredKeys) { if (!(key in event)) { 
-  print("Fremden Event abgefangen"); 
-  return; }
-   };
-// Ende abfangen fremde Events
+// Abfangen fremde events
+let eventinhalt = (JSON.stringify(event)); 
+let suchbegriff = "shelly-blu"; 
+let index = eventinhalt.indexOf(suchbegriff); 
+if (index !== -1) { 
+  print("Suchbegriff gefunden an Position: " + index); 
+  } 
+  else { 
+    print("Suchbegriff nicht gefunden, fremden event abgefangen");
+    return;
+    }
+
+// ende if abfangen fremder events
+  
+ print(event.info.data.address);
    
   // ist es der äußere Sensor? 
   if(event.info.data.address!=sensor_aussen) { 
@@ -123,4 +131,4 @@ function verzoegerter_start(millisekunden) {
 }
 
 // Beispielaufruf der Pause-Funktion mit einer Verzögerung von 3000 Millisekunden (3 Sekunden)
-verzoegerter_start(10000);
+verzoegerter_start(5000);
