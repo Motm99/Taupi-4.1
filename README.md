@@ -26,11 +26,11 @@ Wie macht der Lüfter das?
 
 Woraus besteht das System?
 
-  - zwei kabellosen Temperatur und Feuchtigkeitssensoren Shelly H+T Blu (einer für innen, einer für außen)
+  - zwei kabellose Temperatur und Feuchtigkeitssensoren Shelly H+T Blu (einer für innen, einer für außen)
   - einer Shelly Plug S Plus (schaltet den Lüfter, ist die Plattform für die Skripte)
-  - einem Lüfter (230V Lüfter mit Stecker, 150mm, 15W aufwärts; gibts in Massen bei ebay)
-  - mehreren Skripte, die  auf der Shelly Plug laufen
-  - einem Skript zur Initialisierung des KVS Variablenspeichers im Shelly Plug
+  - einem Lüfter (230V Lüfter mit Stecker, z.B. 150mm, 15W)
+  - drei Skripte, die auf der Shelly Plug installiert werden
+  - einem Skript zur einmaligen Initialisierung des KVS Variablenspeichers im Shelly Plug
 
 Instalationsanleitung als Film ist in Arbeit.  
 Kurzversion: 
