@@ -12,17 +12,17 @@ Inspiriert durch den phänomenalen Taupunktlüfter aus der Zeitschrift MAKE 1/20
 
 Warum auf einer Shelly Plug und nicht im coolen HomeAssitant oder IOBroker oder sowas? Das ist doch Steinzeit.
 
-  Damit es als Insel mit minimalem Aufwand fernab von WLANs und Routern laufen kann. 
-  Und weils geht.
+- Damit es als Insel mit minimalem Aufwand fernab von WLANs und Routern laufen kann. 
+- Und weils geht.
 
 Was ist die Aufgabe des Taupunktlüfters?
 
-  Der Taupunktlüfter soll die Luftfeuchtigkeit in einem Raum (meist Keller) durch gesteuerte Belüftung möglichst weit absenken.
-  Den Begriff Taupunkt erkläre ich nicht, die Kollegen von der MAKE erklären das Prinzip perfekt.
+- Der Taupunktlüfter soll die Luftfeuchtigkeit in einem Raum (meist Keller) durch gesteuerte Belüftung möglichst weit absenken.
+- Den Begriff Taupunkt erkläre ich nicht, die Kollegen von der MAKE erklären das Prinzip perfekt.
 
 Wie macht der Lüfter das? 
 
-  Der Taupunktlüfter lüftet nur dann, wenn die Außenluft (deutlich) weniger Wasser als die Innenluft enthält.
+- Der Taupunktlüfter lüftet nur dann, wenn die Außenluft (deutlich) weniger Wasser als die Innenluft enthält.
 
 Woraus besteht das System?
 
@@ -43,5 +43,5 @@ Kurzversion:
 
 P.S.: ich habe wenig Ahnung von Programmieren, deshalb ist einiges recht rustikal gelöst, aber es hat Spass gemacht.
 
-Anregungen ud Korrekturen gerne, das Projekt wird sicher wachsen :-)
+Anregungen und Korrekturen gerne, das Projekt wird sicher wachsen :-)
 
