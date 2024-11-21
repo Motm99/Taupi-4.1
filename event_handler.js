@@ -122,13 +122,4 @@ function taupunkt(temperatur, luftfeuchtigkeit) {
 
 // Ende Taupunktberechnung ///////////////////////////////////////////////////////////////////////
 
-// Verzögerter Start des Event Handlers, um die ganzen mir nicht bekannten Events beim Start des Shellys die ich noch nicht abfangen kann abzuwarten. 
-function verzoegerter_start(millisekunden) {
-    Timer.set(millisekunden, false, function() {
-        print("Pause beendet nach " + millisekunden + " Millisekunden.");
-        Shelly.addEventHandler(checkBlu); // registriert checkEvent als EventHandler
-         });
-}
-
-// Beispielaufruf der Pause-Funktion mit einer Verzögerung von 3000 Millisekunden (3 Sekunden)
-verzoegerter_start(5000);
+Shelly.addEventHandler(checkBlu); // registriert checkEvent als EventHandler
