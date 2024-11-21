@@ -41,6 +41,7 @@ Kurzversion:
 - Skripte auf automatischen Start stellen.
 - Adressen der BT-Sensoren raussuchen und in event-handler anpassen.
 
-P.S.: ich habe wenig Ahnung von Programmieren, deshalb ist einiges recht rustikal gelöst.
+P.S.: ich habe wenig Ahnung von Programmieren, deshalb ist einiges recht rustikal gelöst, aber es hat Spass gemacht.
+
 Anregungen ud Korrekturen gerne, das Projekt wird sicher wachsen :-)
-Aber es hat Spass gemacht.
+
