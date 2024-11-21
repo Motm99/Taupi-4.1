@@ -1,7 +1,26 @@
-//////// Hier musst du die Adresse der H&T Blu Sensoren eingeben
+////////////// TAUPI 4.0 @ Shelly ///// Script fusion event_handler und schalter ////////////////////
+// Diese Software und die zugehörigen Skripte unterliegen der Boost Software License - Version 1.0 - August 17th, 2003
+// copyright by boeserbob
+// Fragen an quirb@web.de
+// Dokumentation und aktuelle Versionen unter https://github.com/BoeserBob/Taupi-4.0
+// Getestet mit Firmware 
+// Shelly Plus Plug S 20241011-114442/1.4.4-g6d2a586
+// Shelly BLU HT 1.0.16
+// 
+// Der Taupunktlüfter besteht aus drei skripten:
+//     einem event handler mit Lüftersteuerung (fusion event_handler und schalter)
+//     einem bluetooth "Empfänger" (ble-shelly-blu, der ist nicht von mir sondern ein fertiges Beispiel von shelly)
+//     einem Script zur Anlage der KVS, der nur einmal aufgerufen werden muss (KVS_anlegen).
+// 
+// Dieser Script hier ist der event event_handler und schalter, er lauscht auf die vom bluetooth Empfänger geworfenen events der H&T Blu Sensoren.
+// er liest die Daten für Temperatur und Feuchtigkeit aus den JSON Paketen aus
+// er berechnet den Taupunkt
+// er speichert notwendige Daten in den dauerhaften KVS Speicher des Shellys.
+// er schaltet den shelly entsprechend der Messwerte und Parameter
+//
+// //////// Hier musst du die Adresse der H&T Blu Sensoren eingeben
 var sensor_aussen="7c:c6:b6:57:99:45";
 var sensor_innen="7c:c6:b6:61:e8:11";
-//////////////////////////////// ab hier nichts mehr ändern ///////////////////
 
 var taupunkt_aussen;
 var taupunkt_innen;
