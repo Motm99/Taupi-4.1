@@ -1,3 +1,6 @@
+// Fusion Script läuft nicht, da maximal 5 Shelly calls in einem Script existieren dürfen. 
+
+
 ////////////// TAUPI 4.0 @ Shelly ///// Script fusion event_handler und schalter ////////////////////
 // Diese Software und die zugehörigen Skripte unterliegen der Boost Software License - Version 1.0 - August 17th, 2003
 // copyright by boeserbob
