@@ -3,12 +3,12 @@ Offen
 - Warum stürzt der Fusion Script immer wieder ab? Wer erzeugt die KVS.getmany Aufrufe?
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt.
 - Umbauen KVS auf einen JSON für alle 4 Daten statt 4 einzelne Einträge -> Reduzierung Anzahl Shelly Calls.
-
+- Fusion der Scripte: Script für Schalten und Event Handler zu einem zusammenführen (erfordert Abruf Daten mit KVS.getMany da sonst zu viele shelly calls, maximal 5 pro script zulässig).
 
 Erledigt
 - Taupunktberechnung korrigiert (war über und unter Null Grad gleich)
 - Warum startet der Script taupi_event_handler_checkBlu nicht automatisch beim Neustart des Shelly, obwohl es aktiviert ist? Weil beim Reboot Events geworfen werden, die von meinem einfachen Filter nicht abgefangen werden. 
-- Fusion der Scripte: Script für Schalten und Event Handler zu einem zusammenführen
+
 - Abfangen von Störungen verbessern: parsen des JSONs ob korrekte keys drin sind.
 
 Abgebrochen
