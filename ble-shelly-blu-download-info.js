@@ -1,15 +1,12 @@
-Zum Auslesen der Bluetoothschnittstelle verwende ich einen Beispielscript von Alterco: 
-
-https://github.com/ALLTERCO/shelly-script-examples/tree/main
-
-Unterliegt der dort abgelegten:
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
-
-ble-shelly-blu.js
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Zum Auslesen der Bluetoothschnittstelle verwende ich einen Beispielscript von Alterco: 
+// https://github.com/ALLTERCO/shelly-script-examples/tree/main
+// ble-shelly-blu.js
+// 
+// Unterliegt der dort abgelegten:
+//                                  Apache License
+//                            Version 2.0, January 2004
+//                         http://www.apache.org/licenses/
+// 
 /**
  * This script will use BLE observer to listen for advertising data from nearby Shelly BLU devices,
  * decodes the data using a BTHome data structure, and emits the decoded data for further processing.
