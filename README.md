@@ -32,7 +32,9 @@ Woraus besteht das System?
   - drei Skripte, die auf der Shelly Plug installiert werden
   - einem Skript zur einmaligen Initialisierung des KVS Variablenspeichers im Shelly Plug
 
-Instalationsanleitung als Film ist in Arbeit.  
+Instalationsanleitung als Video:
+https://www.youtube.com/watch?v=BIO-l9YzWxA
+
 Kurzversion: 
 - BT-Sensoren mit Shelly Plug koppeln.
 - Firmwareupdates durchführen. 
