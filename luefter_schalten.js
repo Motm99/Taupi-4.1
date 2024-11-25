@@ -18,9 +18,9 @@ function schalten(taupunkt_innen,taupunkt_aussen,temperatur_innen,humidity_innen
  print("schalten_aufgerufen ");
 
 /////////////// Schaltparameter ///////////////
- let taupunktschwelle = 2; // in °C = Differenz zwischen Taupunkt innen ud aussen, ab der der Lüfter einschaltet
- let mindesttemperatur = 8; // in °C = unterhalb dieser Temperatur wird nicht gelüftet 
- let mindesthumi = 60; // in % = unterhalb dieser Schwelle wird nicht mehr gelüftet
+ let taupunktschwelle = 5; // in °C = Differenz zwischen Taupunkt innen ud aussen, ab der der Lüfter einschaltet
+ let mindesttemperatur = 10; // in °C = unterhalb dieser Temperatur wird nicht gelüftet 
+ let mindesthumi = 50; // in % = unterhalb dieser Schwelle wird nicht mehr gelüftet
 //////////// Schaltparameter /////////////////
 
    if (temperatur_innen > mindesttemperatur && humidity_innen > mindesthumi) {
@@ -79,7 +79,7 @@ Shelly.call(
   let temp_innen;
   let humi_innen;
   
-Timer.set(5000, true, function(ud) { //Start Timerschleife
+Timer.set(10000, true, function(ud) { //Start Timerschleife
   kvsGet("taupunkt_innen","taupunkt_aussen","temperatur_innen","humidity_innen");
   print("Timerergebnis:"); 
   print(taupi_innen);
