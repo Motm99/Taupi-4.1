@@ -9,7 +9,7 @@ A dewpoint triggered ventilaton system based on a Shelly Plug S Plus and two She
 Inspiriert durch den phänomenalen Taupunktlüfter aus der Zeitschrift MAKE 1/2022 ....
 - geplagt von grässlichen Versuchen mit dem Arduino (Version 1: grrr, kein WLAN)
 - gequält von lausigen DHT22 Sensoren an einem selbst programmierten ESP8266 (Version 2: Kotz, DHT22 und EMV...)
-- geflasht von ESP easy, Rules und den BME280 (Version 3: laaangweilig, damit war der Taupunktlüfter an ein einem Nachmittag fertig).
+- geflasht von ESP easy, Rules und den BME280 (Version 3: laaangweilig, damit war der Taupunktlüfter an einem Nachmittag fertig).
   
 ... habe ich als Version 4.0 eine idiotensichere Variante ohne Löten, ohne Kabel zu den Sensoren, ohne 230V Basteleien zusammengestellt.
 
