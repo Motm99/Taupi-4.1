@@ -53,7 +53,7 @@ if (index !== -1) {
   
  print(event.info.data.address);
    
-  // ist es der äußere Sensor? 
+  // Auswertung des events: ist es der äußere Sensor? 
   if(event.info.data.address!=sensor_aussen) { 
       print("sensor aussen erkannt -------------------------------");
       var taupunkt_aussen = taupunkt(event.info.data.temperature,event.info.data.humidity);
@@ -71,7 +71,7 @@ if (index !== -1) {
 
  } // ende if aussen
 
-// ist es der innere sensor?
+// Auswertung des Events: ist es der innere sensor?
   if (event.info.data.address!=sensor_innen) {
       print("sensor innen erkannt ----------------------------------------------");
       let taupunkt_innen = taupunkt(event.info.data.temperature,event.info.data.humidity);
