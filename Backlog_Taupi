@@ -1,5 +1,6 @@
 Offen
 - Stabilität verbessern, gibt immer noch sporadische Abstürze.
+- KVS.set buggt, schreibt Taupunkt innen in Taupunkt außen.
 - Taupunktberechnung prüfen. Werte sind zu niedrig.
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt (erfordert einsparen von einem Script).
 - verstehen KVS.getMany 
