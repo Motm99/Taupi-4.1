@@ -2,7 +2,7 @@
 Installationsanleitung: 
 https://www.youtube.com/watch?v=BIO-l9YzWxA
 
-Offene Themen sind im Backlog dokumentiert.
+Alles läuft noch nicht, offene Themen sind im Backlog dokumentiert.
 
 A dewpoint triggered ventilaton system based on a Shelly Plug S Plus and two Shelly H+T Blu humidity and temperature sensors 
 
