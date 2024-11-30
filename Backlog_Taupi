@@ -1,5 +1,6 @@
 Offen
 - Stabilität verbessern, gibt immer noch sporadische Abstürze.
+- Taupunktberechnung prüfen. Werte sind zu niedrig.
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt (erfordert einsparen von einem Script).
 - verstehen KVS.getMany 
 - Prüfen: Umbauen KVS auf einen JSON für alle 4 Daten statt 4 einzelne Einträge -> Reduzierung Anzahl Shelly Calls.
