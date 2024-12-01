@@ -1,5 +1,6 @@
 Offen
 - Stabilität verbessern. ble hört auf ALLE Bluetooth- Devices. Abfrage Adresse in ble implementieren um weniger events zu erzeugen
+- Erkennung ble device an Hand Mac Adresse funktioniert nicht zuverlässig. Verwechselt Geräte und setzt Werte von anderen Geräten in die Felder ein. Syntaxfehler??
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt (erfordert einsparen von einem Script)
 - Prüfen: Umbauen KVS auf einen JSON für alle 4 Daten statt 4 einzelne Einträge -> Reduzierung Anzahl Shelly Calls.
 
