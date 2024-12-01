@@ -18,7 +18,10 @@
 // er berechnet den Taupunkt
 // er speichert notwendige Daten in den dauerhaften KVS Speicher des Shellys.
 //
-// Die Adressen der Sensoren müssen weiter unten angepasst werden. 
+//////// Hier musst du die Adresse der H&T Blu Sensoren eingeben ///
+var sensor_aussen="7c:c6:b6:61:e8:11";
+var sensor_innen="7c:c6:b6:57:99:45";
+////////////////////////////////unterhalb nichts mehr ändern/////////////////////
 // 
 
 var taupunkt_aussen;
@@ -32,11 +35,6 @@ var humidity_aussen;
 function checkBlu(event) { 
   print("check blu aufgerufen");
   print(JSON.stringify(event));
-
-//////// Hier musst du die Adresse der H&T Blu Sensoren eingeben ///
-var sensor_aussen="7c:c6:b6:57:99:45";
-var sensor_innen="7c:c6:b6:61:e8:11";
-////////////////////////////////unterhalb nichts mehr ändern///////////////////
 
 // Abfangen fremde events
 let eventinhalt = (JSON.stringify(event)); 
@@ -55,7 +53,7 @@ if (index !== -1) {
  print(event.info.data.address);
    
   // ist es der äußere Sensor? 
-  if(event.info.data.address!=sensor_aussen) { 
+  if(event.info.data.address==sensor_aussen) { 
       print("sensor aussen erkannt -------------------------------");
       var taupunkt_aussen = taupunkt(event.info.data.temperature,event.info.data.humidity);
       var temperatur_aussen = (event.info.data.temperature);
@@ -73,7 +71,7 @@ if (index !== -1) {
  } // ende if aussen
 
 // ist es der innere sensor?
-  if (event.info.data.address!=sensor_innen) {
+  if (event.info.data.address==sensor_innen) {
       print("sensor innen erkannt ----------------------------------------------");
       let taupunkt_innen = taupunkt(event.info.data.temperature,event.info.data.humidity);
       let temperatur_innen = (event.info.data.temperature);
