@@ -1,5 +1,5 @@
 Offen
-- Stand alone Betrieb: Signalisierung Verbindung zu Sensoren (grüner und blauer blink), und Signalisierung schwache Batterie (roter blink)
+- Stand alone Betrieb: Signalisierung Verbindung zu Sensoren (grüner und blauer blink), und Signalisierung schwache Batterie (roter blink) -> wird als Branch weiter verfolgt.
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt (erfordert einsparen von einem Script)
 - Prüfen: Umbauen KVS auf einen JSON für alle 4 Daten statt 4 einzelne Einträge -> Reduzierung Anzahl Shelly Calls.
 
