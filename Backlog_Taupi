@@ -1,4 +1,5 @@
 Offen
+- Stand alone Betrieb: Signalisierung Verbindung zu Sensoren (grüner und blauer blink), und Signalisierung schwache Batterie (roter blink)
 - Watchdog, der abgestürzte Scripte erkennt und neu startet, wenn es zu Fehlern kommt (erfordert einsparen von einem Script)
 - Prüfen: Umbauen KVS auf einen JSON für alle 4 Daten statt 4 einzelne Einträge -> Reduzierung Anzahl Shelly Calls.
 
@@ -6,10 +7,10 @@ Erledigt
 - Taupunktberechnung korrigiert (war über und unter Null Grad gleich)
 - Warum startet der Script taupi_event_handler_checkBlu nicht automatisch beim Neustart des Shelly, obwohl es aktiviert ist? Weil beim Reboot Events geworfen werden, die von meinem einfachen Filter nicht abgefangen werden. 
 - Abfangen von Störungen verbessern: parsen des JSONs ob korrekte keys drin sind.
-- Erkennung ble device an Hand Mac Adresse funktioniert nicht zuverlässig. Verwechselt Geräte und setzt Werte von anderen Geräten in die Felder ein. Syntaxfehler?? (ja, war Syntaxfehler != statt = und innen udn außen vertauscht, Anfänger...)
+- Erkennung ble device an Hand Mac Adresse funktioniert nicht zuverlässig. Verwechselt Geräte und setzt Werte von anderen Geräten in die Felder ein. Syntaxfehler?? (ja, war Syntaxfehler != statt = und innen und außen vertauscht, Anfänger...)
 
 Abgebrochen
-- Fusion der Scripte: KVS anlegen in den event handler integrieren (geht nciht, da zu viele shelly.calls)
+- Fusion der Scripte: KVS anlegen in den event handler integrieren (geht nicht, da zu viele shelly.calls)
 - Fusion der Scripte: Script für Schalten und Event Handler zu einem zusammenführen (erfordert Abruf Daten mit KVS.getMany da sonst zu viele shelly calls, maximal 5 pro script zulässig).
 - Stabilität verbessern. ble hört auf ALLE Bluetooth- Devices. Abfrage Adresse in ble implementieren um weniger events zu erzeugen (nicht mehr nötig, da Fehler in Auswertung Adressen gefunden)
 
