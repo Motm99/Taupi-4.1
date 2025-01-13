@@ -39,8 +39,30 @@ function schalten(taupunkt_innen,taupunkt_aussen,temperatur_innen,humidity_innen
 
 }
 
+///// Rotes Blinken falls Batterie zu schwach geworden
+function anzeigen(bat_i,bat_a) {
+let bat_schwelle = 200;
+
+Shelly.call("Shelly.GetDeviceInfo", {}, function(res) { print(JSON.stringify(res)); let deviceId = res["device"]["id"]; print("Device ID: " + deviceId); });
+ 
+if(bat_i < bat_schwelle)
+{
+ print("Batterie innen schwach");
+ Shelly.call("Device.setStatus", { "id": deviceID, "led": { "mode": ledState ? "red" : "on" };
+ return();
+}
+
+if(bat_a < bat_schwelle)
+{
+ print("Batterie aussen schwach");
+ Shelly.call("Device.setStatus", { "id": deviceID, "led": { "mode": ledState ? "red" : "on" };
+ return();
+}
+
+}
 
 
+///// Feuchte und Temperatur aus KVS auslesen //////////////
 function kvsGet(key1,key2,key3,key4) {
 Shelly.call(
         "KVS.get",
@@ -71,13 +93,36 @@ Shelly.call(
         }
     );
     
-}
+} /// Ende Auslesen
 
-//kvsGet("taupunkt_innen","taupunkt_aussen","temperatur_innen","humidity_innen");
+//// Batteriestand aus KVS auslesen //////////////
+function kvsGet_bat(key5,key6) {
+Shelly.call(
+        "KVS.get",
+        { "key": key5 },
+        function (result) {
+        bat_innen = result.value;
+        }
+    );
+    Shelly.call(
+        "KVS.get",
+        { "key": key6 },
+        function (result) {
+        bat_aussen = result.value;
+        }
+    );
+} /// Ende Auslesen
+
+
+
+
+// Schleife für Schalten und Prüfen //////////////////////////////////////////////////////////////
   let taupi_innen;
   let taupi_aussen;
   let temp_innen;
   let humi_innen;
+  let bat_innen;
+  let bat_aussen;
   
 Timer.set(10000, true, function(ud) { //Start Timerschleife
   kvsGet("taupunkt_innen","taupunkt_aussen","temperatur_innen","humidity_innen");
@@ -87,6 +132,10 @@ Timer.set(10000, true, function(ud) { //Start Timerschleife
   print(temp_innen);
   print(humi_innen);
   schalten(taupi_innen,taupi_aussen,temp_innen,humi_innen);
+  kvsGet_bat("battery_innen","battery_aussen");
+  print(bat_innen);
+  print(bat_aussen);
+  anzeigen(bat_innen,bat_aussen);
      
  } // Ende Timerschleife
  , null);
