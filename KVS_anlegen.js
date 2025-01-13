@@ -11,8 +11,6 @@ let taupunkt_innen;
 let taupunkt_aussen;
 let temperatur_innen;
 let humidity_innen;
-let battery_aussen;
-let battery_innen;
 
       Shelly.call("KVS.Set", {
       "key": "taupunkt_innen", "value": 99}
@@ -26,11 +24,3 @@ let battery_innen;
       Shelly.call("KVS.Set", {
       "key": "humidity_innen", "value": 99}
       );
-      Shelly.call("KVS.Set", {
-      "key": "battery_aussen", "value": 01}
-      );
-      Shelly.call("KVS.Set", {
-      "key": "battery_innen", "value": 01}
-      );
-
-
