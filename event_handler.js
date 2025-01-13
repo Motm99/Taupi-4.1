@@ -57,33 +57,25 @@ if (index !== -1) {
       print("sensor aussen erkannt -------------------------------");
       var taupunkt_aussen = taupunkt(event.info.data.temperature,event.info.data.humidity);
       var temperatur_aussen = (event.info.data.temperature);
-      var humidity_aussen = (event.info.data.humidity);
-      var battery_aussen = (event.info.data.battery);
+      var humidity_aussen = (event.info.data.humidity);      
       print("aussen feuchte, temperatur, taupunkt:");
       print(event.info.data.humidity);
       print(event.info.data.temperature);
-      print(event.info.data.battery);
       print(taupunkt_aussen);
       
       // taupunkt in KVS wegspeicher
       Shelly.call("KVS.Set", {
       "key": "taupunkt_aussen", "value": taupunkt_aussen}
       );
-      // batteriestand in KVS wegspeicher
-      Shelly.call("KVS.Set", {
-      "key": "battery_aussen", "value": battery_aussen}
-      );
-    
 
  } // ende if aussen
 
 // ist es der innere sensor?
   if (event.info.data.address==sensor_innen) {
       print("sensor innen erkannt ----------------------------------------------");
-      var taupunkt_innen = taupunkt(event.info.data.temperature,event.info.data.humidity);
-      var temperatur_innen = (event.info.data.temperature);
-      var humidity_innen = (event.info.data.humidity);
-      var battery_innen = (event.info.data.battery);
+      let taupunkt_innen = taupunkt(event.info.data.temperature,event.info.data.humidity);
+      let temperatur_innen = (event.info.data.temperature);
+      let humidity_innen = (event.info.data.humidity);
       print("innen feuchte, temperatur, taupunkt:");
       print(event.info.data.humidity);
       print(event.info.data.temperature);
@@ -97,9 +89,6 @@ if (index !== -1) {
       Shelly.call("KVS.Set", {
       "key": "humidity_innen", "value": humidity_innen}
       );
-      Shelly.call("KVS.Set", {
-      "key": "battery_innen", "value": battery_innen}
-      );  
  } // // ende if innen
 
 
