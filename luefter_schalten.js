@@ -79,7 +79,7 @@ Shelly.call(
   let temp_innen;
   let humi_innen;
   
-Timer.set(60000, true, function(ud) { //Start Timerschleife
+Timer.set(300000, true, function(ud) { //Start Timerschleife
   kvsGet("taupunkt_innen","taupunkt_aussen","temperatur_innen","humidity_innen");
   print("Timerergebnis:"); 
   print(taupi_innen);
