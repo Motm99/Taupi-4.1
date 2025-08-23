@@ -3,9 +3,7 @@
 // copyright by boeserbob
 // Fragen an quirb@web.de
 // Dokumentation und aktuelle Versionen unter https://github.com/BoeserBob/Taupi-4.0
-// Getestet mit Firmware 
-// Shelly Plus Plug S 20241011-114442/1.4.4-g6d2a586
-// Shelly BLU HT 1.0.16
+//
 // 
 // Der Taupunktlüfter besteht aus vier skripten:
 //     einem event handler (taupi_event_handler_checkBlu)
