@@ -35,7 +35,7 @@ Woraus besteht das System?
   - einem Lüfter (230 V Lüfter mit Stecker, z.B. 150 mm, 15 W)
   - ein Skript, das auf der Shelly Plug S installiert werden muss
 
-# Instalationsanleitung Kurzversion
+# Installationsanleitung Kurzversion
 
 - Shelly Plug einrichten
 - BT-Sensoren mit Shelly Plug koppeln.
