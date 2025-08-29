@@ -41,6 +41,9 @@ Woraus besteht das System?
 Installationsvideo: 
 https://youtu.be/OwO5WBgde4s?si=qNCkJwFlZNB12Jp6
 
+Und so viel bringts:
+https://youtube.com/shorts/eaow63bAOWc
+
 # Installationsanleitung Kurzversion
 
 - Shelly Plug einrichten
