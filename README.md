@@ -1,4 +1,5 @@
-# Taupi-4.0
+# Taupi-4.0 
+Vereinfachte Version powered by HolzaChr -> alles in einen Script gepackt und ohne KVS!
 
 Eine Taupukt-gesteuerte Zwangsbelüftung mit einem Shelly Plug S Plus als Schaltsteckdose und BLE-Gateway, sowie zwei Shelly BLU HT Sensoren.
 
