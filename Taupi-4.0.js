@@ -3,9 +3,10 @@
 // Fragen an quirb@web.de
 // Dokumentation und aktuelle Versionen unter https://github.com/BoeserBob/Taupi-4.0
 //
-// Dieses Skript schaltet den Lüfter über den Schalter des Shellys auf dem er installiert ist.
-//   - Es fängt Messwert-Events von BLE-Sensoren auf.
-//   - Wenn die Messwerte von Innen- und Außen-Sensor stammen, werden aus Temperatur und Luftfeuchte die jeweiligen Taupunkte berechnet.
+// Dieses Skript verwandelt z.B. eine Shelly Plug in eine Taupunktlüftersteuerung. 
+// Der Skript schaltet einen angeschlossenen Lüfter über den Schalter des Shellys auf dem er installiert ist entsprechend der Taupunktunterschiede innen - außen.
+//   - Es empfängt Messwert-Events von BLE-Sensoren auf.
+//   - Wenn die Messwerte von den angegebenen Innen- und Außen-Sensoren stammen, werden aus Temperatur und Luftfeuchte die jeweiligen Taupunkte berechnet.
 //   - Eine Timerschleife überprüft regelmäßig, ob alle Einschaltbedingungen fuer den Lüfter erfüllt sind:
 //         - Wenn der Taupunkt innen größer als der Taupunkt außen + einem Schwellwert ist wird der Lüfter eingeschaltet, sonst ausgeschaltet.
 //         - Wenn die Innentermperatur unter 10 °C und die Innenraumfeuchte unter 50 % ist wird der Lüfer ausgeschaltet.
@@ -22,8 +23,7 @@ var taupunktschwelle   = 2;                  // [°C] Lüfter einschalten wenn T
 var mindesttemperatur  = 10;                 // [°C] ...und Tinnen > mindesttemperatur...
 var mindesthumi        = 50;                 // [%]  ...und RHinnen > mindesthumi
 var schaltzeit         = 60;                 // [s]  Schaltbedingung prüfen alle X Sekunden
-//==========================================
-
+//===== Ende Sensor-Konfiguration === AB HIER MUSS NICHTS MEHR GEÄNDERT WERDEN =====================================
 
 
 var taupunkt_aussen;
