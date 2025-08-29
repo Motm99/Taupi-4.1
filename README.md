@@ -38,6 +38,10 @@ Woraus besteht das System?
   - ein Skript, das auf der Shelly Plug S installiert werden muss
 
 # Installationsanleitung Kurzversion
+Installationsvideo: 
+https://youtu.be/OwO5WBgde4s?si=qNCkJwFlZNB12Jp6
+
+# Installationsanleitung Kurzversion
 
 - Shelly Plug einrichten
 - BT-Sensoren mit Shelly Plug koppeln.
