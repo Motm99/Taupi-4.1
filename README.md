@@ -8,11 +8,11 @@ Getestet mit:
 - Shelly BLU HT, Gerätemodell SBHT-003C, Firmware-Version 20250818-045415/v1.0.23@27f3ef9b
 
 Inspiriert durch den phänomenalen Taupunktlüfter aus der Zeitschrift MAKE 1/2022 ....
-- geplagt von grässlichen Versuchen mit dem Arduino (Version 1: grrr, kein WLAN)
-- gequält von lausigen DHT22 Sensoren an einem selbst programmierten ESP8266 (Version 2: Kotz, DHT22 und EMV...)
-- geflasht von ESP easy, Rules und den BME280 (Version 3: laaangweilig, damit war der Taupunktlüfter an einem Nachmittag fertig).
+- geplagt von grässlichen Versuchen mit dem Arduino (Taupi-1.0: grrr, kein WLAN)
+- gequält von lausigen DHT22 Sensoren an einem selbst programmierten ESP8266 (Taupi-2.0: Kotz, DHT22 und EMV...)
+- geflasht von ESP easy, Rules und den BME280 (Taupi-3.0: laaangweilig, damit war der Taupunktlüfter an einem Nachmittag fertig).
   
-... habe ich als Version 4.0 eine idiotensichere Variante ohne Löten, ohne Kabel zu den Sensoren, ohne 230 V Basteleien zusammengestellt.
+... habe ich als Taupi-4.0 eine idiotensichere Variante ohne Löten, ohne Kabel zu den Sensoren, ohne 230 V Basteleien zusammengestellt.
 
 Warum auf einer Shelly Plug und nicht im coolen HomeAssistant oder IOBroker oder sowas? Das ist doch Steinzeit.
 
