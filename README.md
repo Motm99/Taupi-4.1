@@ -1,6 +1,6 @@
 # Taupi-4.0 
  Danke an BoeserBob und holzachr für das Skript.
- Minimale Änderungen durch mich betreffend die Feststellung des tatsächlichen Schaltzustandes.
+ Minimale Änderungen durch mich betreffend die Feststellung des tatsächlichen Schaltzustandes. / M_o_t_m
  
  :-) Vereinfachte Version powered by HolzaChr -> alles in einen Script gepackt und ohne KVS! :-)
 https://github.com/holzachr
