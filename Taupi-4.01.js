@@ -3,9 +3,10 @@
 // Fragen an quirb@web.de
 // Dokumentation und aktuelle Versionen unter https://github.com/BoeserBob/Taupi-4.0
 //
-// Dieses Skript schaltet den Lüfter über den Schalter des Shellys auf dem er installiert ist.
-//   - Es fängt Messwert-Events von BLE-Sensoren auf.
-//   - Wenn die Messwerte von Innen- und Außen-Sensor stammen, werden aus Temperatur und Luftfeuchte die jeweiligen Taupunkte berechnet.
+// Dieses Skript verwandelt z.B. eine Shelly Plug in eine Taupunktlüftersteuerung. 
+// Der Skript schaltet einen angeschlossenen Lüfter über den Schalter des Shellys auf dem er installiert ist entsprechend der Taupunktunterschiede innen - außen.
+//   - Es empfängt Messwert-Events von BLE-Sensoren auf.
+//   - Wenn die Messwerte von den angegebenen Innen- und Außen-Sensoren stammen, werden aus Temperatur und Luftfeuchte die jeweiligen Taupunkte berechnet.
 //   - Eine Timerschleife überprüft regelmäßig, ob alle Einschaltbedingungen fuer den Lüfter erfüllt sind:
 //         - Wenn der Taupunkt innen größer als der Taupunkt außen + einem Schwellwert ist wird der Lüfter eingeschaltet, sonst ausgeschaltet.
 //         - Wenn die Innentermperatur unter 10 °C und die Innenraumfeuchte unter 50 % ist wird der Lüfer ausgeschaltet.
@@ -22,8 +23,7 @@ var taupunktschwelle   = 2;                  // [°C] Lüfter einschalten wenn T
 var mindesttemperatur  = 10;                 // [°C] ...und Tinnen > mindesttemperatur...
 var mindesthumi        = 50;                 // [%]  ...und RHinnen > mindesthumi
 var schaltzeit         = 60;                 // [s]  Schaltbedingung prüfen alle X Sekunden
-//==========================================
-
+//===== Ende Sensor-Konfiguration === AB HIER MUSS NICHTS MEHR GEÄNDERT WERDEN =====================================
 
 
 var taupunkt_aussen;
@@ -32,6 +32,8 @@ var temperatur_innen;
 var temperatur_aussen;
 var humidity_innen;
 var humidity_aussen;
+var battery_innen;
+var battery_aussen;
 
 var luefterstatus = null;  // Merkt sich letzten Schaltzustand, um unnötige Schaltvorgänge zu vermeiden
 
@@ -106,12 +108,14 @@ function checkBlu(event) {
     temperatur_aussen = event.temperature;
     humidity_aussen   = event.humidity;
     taupunkt_aussen   = taupunkt(event.temperature, event.humidity);
-    print("Neue Werte für Außen:", temperatur_aussen, "°C,", humidity_aussen, "%, Tp:", taupunkt_aussen, "°C");
+    battery_aussen     =  event.battery;
+    print("Neue Werte für Außen:", temperatur_aussen, "°C,", humidity_aussen, "%, Tp:", taupunkt_aussen, "°C, Batt: ", battery_aussen, " % ");
   } else if (event.address === sensor_innen) {
     temperatur_innen = event.temperature;
     humidity_innen   = event.humidity;
     taupunkt_innen   = taupunkt(event.temperature, event.humidity);
-    print("Neue Werte für Innen:", temperatur_innen, "°C,", humidity_innen, "%, Tp:", taupunkt_innen, "°C");
+    battery_innen     =  event.battery;
+    print("Neue Werte für Innen:", temperatur_innen, "°C,", humidity_innen, "%, Tp:", taupunkt_innen, "°C, Batt: " , battery_innen, " % ");
   }
 }
 
@@ -123,7 +127,7 @@ Timer.set(schaltzeit * 1000, true, function () {
   schalten();
 });
 
-// Neuer Timer zur Statusüberprüfung alle 5 Minuten
+// Neuer Timer zur Statusüberprüfung alle 30 Sekunden
 Timer.set(300 * 100, true, checkSwitchStatus);
 
 ///////////////// BLE-Decoder ///////////////////////
