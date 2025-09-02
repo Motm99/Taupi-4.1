@@ -3,10 +3,9 @@
 // Fragen an quirb@web.de
 // Dokumentation und aktuelle Versionen unter https://github.com/BoeserBob/Taupi-4.0
 //
-// Dieses Skript verwandelt z.B. eine Shelly Plug in eine Taupunktlüftersteuerung. 
-// Der Skript schaltet einen angeschlossenen Lüfter über den Schalter des Shellys auf dem er installiert ist entsprechend der Taupunktunterschiede innen - außen.
-//   - Es empfängt Messwert-Events von BLE-Sensoren auf.
-//   - Wenn die Messwerte von den angegebenen Innen- und Außen-Sensoren stammen, werden aus Temperatur und Luftfeuchte die jeweiligen Taupunkte berechnet.
+// Dieses Skript schaltet den Lüfter über den Schalter des Shellys auf dem er installiert ist.
+//   - Es fängt Messwert-Events von BLE-Sensoren auf.
+//   - Wenn die Messwerte von Innen- und Außen-Sensor stammen, werden aus Temperatur und Luftfeuchte die jeweiligen Taupunkte berechnet.
 //   - Eine Timerschleife überprüft regelmäßig, ob alle Einschaltbedingungen fuer den Lüfter erfüllt sind:
 //         - Wenn der Taupunkt innen größer als der Taupunkt außen + einem Schwellwert ist wird der Lüfter eingeschaltet, sonst ausgeschaltet.
 //         - Wenn die Innentermperatur unter 10 °C und die Innenraumfeuchte unter 50 % ist wird der Lüfer ausgeschaltet.
@@ -16,14 +15,15 @@
 //
 
 //========== Sensor-Konfiguration ==========
-var sensor_aussen = "7c:c6:b6:61:e8:11";
-var sensor_innen  = "7c:c6:b6:57:99:45";
+var sensor_aussen="7c:c6:b6:74:9a:2e";
+var sensor_innen="0c:ef:f6:02:c2:dd";
 //========== Schalt-Konfiguration ==========
 var taupunktschwelle   = 2;                  // [°C] Lüfter einschalten wenn TPinnen > (TPaussen + taupunktschwelle)...
 var mindesttemperatur  = 10;                 // [°C] ...und Tinnen > mindesttemperatur...
 var mindesthumi        = 50;                 // [%]  ...und RHinnen > mindesthumi
-var schaltzeit         = 6;                 // [s]  Schaltbedingung prüfen alle X Sekunden
-//===== Ende Sensor-Konfiguration === AB HIER MUSS NICHTS MEHR GEÄNDERT WERDEN =====================================
+var schaltzeit         = 60;                 // [s]  Schaltbedingung prüfen alle X Sekunden
+//==========================================
+
 
 
 var taupunkt_aussen;
@@ -32,8 +32,6 @@ var temperatur_innen;
 var temperatur_aussen;
 var humidity_innen;
 var humidity_aussen;
-var battery_innen;
-var battery_aussen;
 
 var luefterstatus = null;  // Merkt sich letzten Schaltzustand, um unnötige Schaltvorgänge zu vermeiden
 
@@ -80,20 +78,40 @@ function schalten() {
   }
 }
 
+// Überprüft den tatsächlichen Status des Relais
+function checkSwitchStatus() {
+  print("----- Überprüfung des tatsächlichen Lüfterstatus -----");
+  Shelly.call(
+    "Switch.GetStatus",
+    { id: 0 },
+    function (result, error_code, error_message) {
+      if (error_code === 0) {
+        if (result.output !== luefterstatus) {
+          print("ACHTUNG: Der tatsächliche Schalterstatus stimmt nicht mit dem Skriptstatus überein.");
+          print("Korrigiere Skriptstatus von", luefterstatus, "auf", result.output);
+          luefterstatus = result.output;
+        } else {
+          print("Tatsächlicher Status stimmt mit Skriptstatus überein.");
+        }
+      } else {
+        print("Fehler beim Abrufen des Schalterstatus:", error_message);
+      }
+    }
+  );
+}
+
 // Event-Verarbeitung
 function checkBlu(event) {
   if (event.address === sensor_aussen) {
     temperatur_aussen = event.temperature;
     humidity_aussen   = event.humidity;
     taupunkt_aussen   = taupunkt(event.temperature, event.humidity);
-    battery_aussen     =  event.battery;
-    print("Neue Werte für Außen:", temperatur_aussen, "°C,", humidity_aussen, "%, Tp:", taupunkt_aussen, "°C, Batt: ", battery_aussen, " % ");
+    print("Neue Werte für Außen:", temperatur_aussen, "°C,", humidity_aussen, "%, Tp:", taupunkt_aussen, "°C");
   } else if (event.address === sensor_innen) {
     temperatur_innen = event.temperature;
     humidity_innen   = event.humidity;
     taupunkt_innen   = taupunkt(event.temperature, event.humidity);
-    battery_innen     =  event.battery;
-    print("Neue Werte für Innen:", temperatur_innen, "°C,", humidity_innen, "%, Tp:", taupunkt_innen, "°C, Batt: " , battery_innen, " % ");
+    print("Neue Werte für Innen:", temperatur_innen, "°C,", humidity_innen, "%, Tp:", taupunkt_innen, "°C");
   }
 }
 
@@ -105,6 +123,8 @@ Timer.set(schaltzeit * 1000, true, function () {
   schalten();
 });
 
+// Neuer Timer zur Statusüberprüfung alle 5 Minuten
+Timer.set(300 * 100, true, checkSwitchStatus);
 
 ///////////////// BLE-Decoder ///////////////////////
 
